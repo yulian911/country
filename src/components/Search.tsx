@@ -14,6 +14,7 @@ margin-bottom: 1rem;
 @media(min-width: 767px) {
   margin-bottom: 0;
   width:280px;
+
   
 }
 
@@ -25,7 +26,7 @@ const Input=styled.input.attrs({
 margin-left: 2rem;
 border:none;
 outline:none;
-/* background-color: var(--colors-ui-base); */
+background-color: var(--colors-ui-base);
 color: var(--color-text);
 `
 
