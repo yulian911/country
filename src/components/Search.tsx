@@ -38,7 +38,7 @@ const Search:FC<SearchProps> = ({setSearch, search}) => {
   return (
    <InputContainer>
       <IoSearch/>
-      <Input/>
+      <Input value={search} onChange={(e)=>setSearch(e.target.value)}/>
    </InputContainer>
   )
 }

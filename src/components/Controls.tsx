@@ -1,15 +1,27 @@
-import React, { useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { CustomSelect } from './CustomSelect';
 import Search from './Search'
 import styled from 'styled-components';
+import { on } from 'stream';
 
-const options = [
+
+interface Country {
+  value: string;
+  label: string;
+ }
+
+const options:Country[] = [
   { value: 'Africa', label: 'Africa' },
   { value: 'America', label: 'America' },
   { value: 'Asia', label: 'Asia' },
   { value: 'Europe', label: 'Europe' },
   { value: 'Oceania', label: 'Oceania' },
 ];
+
+
+
+
+
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,13 +34,29 @@ const Wrapper = styled.div`
   }
 `;
 
-const Controls = () => {
+type ControlsProps={
+
+  onSearch:(search: string, region: string)=>void
+}
+
+const Controls:FC<ControlsProps> = ({onSearch}) => {
   const [search, setSearch] = useState('')
-  const [region, setRegion] = useState('')
+  const [region, setRegion] = useState<Country>()
 
 
+  useEffect(() => {
+    const regionValue = region?.value || '';
+    onSearch(search, regionValue);
 
-  console.log(region)
+
+  },[search,region])
+
+
+  const handleChange = (option:any) => {
+    console.log(option);
+    setRegion(option)
+  };
+
   return (
     <Wrapper>
       <Search search={search} setSearch={setSearch}/>
@@ -37,8 +65,8 @@ const Controls = () => {
           placeholder="Filter by Region"
           isClearable
           isSearchable={false}
-          // value={region}
-          // onChange={(e)=>setRegion(e.target.value)}
+          value={region}
+          onChange={handleChange}
           />
     </Wrapper>
   )

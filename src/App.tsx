@@ -1,35 +1,41 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import Controls from './components/Controls';
 
+import React, { useEffect, useState } from 'react';
+
+import {Routes,Route } from 'react-router-dom';
 import Header from './components/Header';
+import List from './components/List';
 import Main from './components/Main';
-import { ALL_COUNTRIES } from './config';
+import Details from './pages/Details';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+
+
+
+
+type CardProps={
+  flags:{
+    png:string
+  },
+  name:string,
+  population:number,
+  region:string,
+  capital:string
+   
+ }
+
 
 const App=()=> {
-const [country, setCountry] = useState([])
-const fetchData = async()=>{
-  try{
-    const {data} = await axios.get(ALL_COUNTRIES)
-    setCountry(data)
-    
-  }catch(e){
-    console.log(e)
-  }
-
-}
-
-
-  useEffect(()=>{
-    fetchData() 
-  },[])
-
-  console.log(country)
+  const [countries, setCountries] = useState<CardProps[] >([])
   return (
    <>
    <Header/>
    <Main>
-      <Controls/>
+    <Routes>
+      <Route path='/' element={<Home countries={countries} setCountries={setCountries} />}  />
+      <Route path='/country/:name' element={<Details/>}  />
+      <Route path='*' element={<NotFound/>}  />
+    </Routes>
+     
    </Main>
    </>
   );
