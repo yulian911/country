@@ -1,8 +1,9 @@
 import React,{useState ,useEffect} from 'react'
 import { Link} from 'react-router-dom'
 import styled from 'styled-components'
-import { Container } from './Containers'
+
 import {IoMoon ,IoMoonOutline} from 'react-icons/io5'
+import {Containers} from './'
 
 
 const HeaderEl=styled.header`
@@ -45,7 +46,7 @@ const Header = () => {
   
   return (
    <HeaderEl>
-      <Container>
+      <Containers>
         <Wrapper>
             <Title>Where is  the word?</Title>
             <ModeSwitcher onClick={toggleTheme}>
@@ -59,7 +60,7 @@ const Header = () => {
               <span style={{marginLeft:'0.75rem'}}>{theme}</span>
             </ModeSwitcher>
         </Wrapper>
-      </Container>
+      </Containers>
    </HeaderEl>
   )
 }

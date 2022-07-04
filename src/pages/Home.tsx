@@ -6,19 +6,11 @@ import Card from '../components/Card'
 import Controls from '../components/Controls'
 import List from '../components/List'
 import { ALL_COUNTRIES } from '../config'
+import { CardProps } from '../Types/Types'
 
 
-type CardProps={
-    flags:{
-      png:string
-    },
-    name:string,
-    population:number,
-    region:string,
-    capital:string
-     
-   }
-  
+
+
 type HomeProps={
  countries:CardProps[]
  setCountries:(data:CardProps[])=>void
@@ -55,8 +47,9 @@ const Home:FC<HomeProps> = ({countries, setCountries}) => {
     
     
       useEffect(()=>{
-        if(!countries.length) fetchData() 
+        if(!countries.length){fetchData() }
       },[])
+
     
 
   return (

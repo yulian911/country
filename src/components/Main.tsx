@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react'
 import styled from 'styled-components'
-import { Container } from './Containers'
+import   Containers  from './Containers'
 
 const Wrapper=styled.main`
 padding: 2rem 0;
@@ -20,9 +20,9 @@ type MainProps = {
 const Main:FC<MainProps> = ({children}) => {
   return (
     <Wrapper>
-      <Container>
+      <Containers>
           {children}
-      </Container>
+      </Containers>
     </Wrapper>
   )
 }

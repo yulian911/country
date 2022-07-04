@@ -2,7 +2,6 @@ import React, { FC, useEffect, useState } from 'react'
 import { CustomSelect } from './CustomSelect';
 import Search from './Search'
 import styled from 'styled-components';
-import { on } from 'stream';
 
 
 interface Country {

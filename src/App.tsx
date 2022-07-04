@@ -1,28 +1,11 @@
 
 import React, { useEffect, useState } from 'react';
-
 import {Routes,Route } from 'react-router-dom';
-import Header from './components/Header';
-import List from './components/List';
-import Main from './components/Main';
+import { Header, Main } from './components';
 import Details from './pages/Details';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
-
-
-
-
-type CardProps={
-  flags:{
-    png:string
-  },
-  name:string,
-  population:number,
-  region:string,
-  capital:string
-   
- }
-
+import { CardProps } from './Types/Types';
 
 const App=()=> {
   const [countries, setCountries] = useState<CardProps[] >([])

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-export const Container= styled.div`
+ const Containers= styled.div`
   width: 100%;
   max-width: 1240px;
   margin:0 auto;
@@ -10,4 +10,4 @@ export const Container= styled.div`
 
 `
 
-
+export default Containers
